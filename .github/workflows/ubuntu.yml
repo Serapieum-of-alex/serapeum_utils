@@ -23,11 +23,16 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
+      - name: Install poetry
+        run: |
+            pip install --user poetry==1.2.2
+            PATH = "${PATH}:/root/.poetry/bin"
+
       - name: Install dependencies
         run: |
             #$CONDA/bin/mamba env update --file environment.yml --name base
-            pip install -r requirements.txt -r requirements-dev.txt
-            python setup.py install
+            poetry install --no-dev
+            source `poetry env info --path`/bin/activate
 
 #    - name: Lint with flake8
 #      run: |
