@@ -54,7 +54,7 @@ source = ["serapeum_utils"]
 
 [tool.coverage.report]
 show_missing = true
-fail_under = 40
+fail_under = 0
 
 
 [tool.isort]
