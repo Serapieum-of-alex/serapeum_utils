@@ -91,23 +91,32 @@ def dateformated(x):
     return x1
 
 
-def printWaitBar(i, total, prefix="", suffix="", decimals=1, length=100, fill=" "):
-    """This function will print a waitbar in the console.
+def print_progress_bar(
+    i: int,
+    total: int,
+    prefix: str = "",
+    suffix: str = "",
+    decimals: int = 1,
+    length: int = 100,
+    fill: str = "█",
+):
+    """print_progress_bar.
 
-    Parameters:
-    i:
+    Parameters
+    ----------
+    i: [int]
         Iteration number
-    total:
+    total: [int]
         Total iterations
-    fronttext:
-        Name in front of bar
-    prefix:
+    prefix: [str]
         Name after bar
-    suffix:
+    suffix: [str]
         Decimals of percentage
-    length:
+    decimals: [int]
+
+    length: [int]
         width of the waitbar
-    fill:
+    fill: [str]
         bar fill
     """
     # Adjust when it is a linux computer
