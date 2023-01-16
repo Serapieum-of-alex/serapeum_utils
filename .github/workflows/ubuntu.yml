@@ -36,13 +36,13 @@ jobs:
       - name: Install & Lint with flake8
         run: |
             pip install flake8
-            flake8 --max-line-length=120 serapeum_utils/*.py tests/*.py
+            flake8 --max-line-length=120 src/serapeum_utils/*.py tests/*.py
 
       - name: Generate coverage report
         run: |
             pip install pytest
             pip install pytest-cov
-            poetry run pytest -vvv --cov=serapeum_utils --cov-report=xml
+            poetry run pytest -vvv --cov=src/serapeum_utils --cov-report=xml
 
       - name: Upload coverage reports to Codecov with GitHub Action
         uses: codecov/codecov-action@v3
