@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "serapeum_utils"
-version = "0.1.0"
+version = "0.1.1"
 description = "utility package"
 authors = ["Mostafa Farrag <moah.farag@gmail.com>"]
 license = "GNU General Public License v3"

@@ -73,7 +73,7 @@ pip install git+https://github.com/Serapieum-of-alex/serapeum_utils
 ## pip
 to install the last release you can easly use pip
 ```
-pip install serapeum_utils==1.4.0
+pip install serapeum_utils==0.1.1
 ```
 
 Quick start
