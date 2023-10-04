@@ -12,3 +12,8 @@ History
 ------------------
 
 * fix bug in the progress bar method
+
+0.1.2 (2023-10-04)
+------------------
+
+* bump up versions
