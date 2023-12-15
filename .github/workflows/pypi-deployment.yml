@@ -36,6 +36,10 @@ jobs:
       - name: Install dependencies
         run: |
             poetry install
+
+      - name: Activate poetry environment
+        if: ${{runner.os == 'Linux'}}
+        run: |
             source `poetry env info --path`/bin/activate
 
       - name: Generate coverage report
