@@ -1,3 +1,4 @@
+"""This module contains some useful functions that are used in the serapeum package."""
 import datetime
 import os
 import pickle
@@ -47,7 +48,7 @@ def load_obj(saved_name):
 
     Examples
     --------
-    >>> path = r"c:\my_computer\files"
+    >>> path = r"c:/my_computer/files"
     >>> load_obj(f'{path}/flow_acc_table')
     """
     with open(saved_name + ".pkl", "rb") as f:
@@ -172,7 +173,7 @@ def class_method_parse(initial_args):
         """
 
         def wrapper(*args, **kwargs):
-
+            """wrapper function."""
             self = args[0]
             # get wrong kwargs
             wrong_kwargs = set(kwargs) - set(initial_args)
@@ -220,7 +221,7 @@ def class_attr_initialize(attributes):
 
     Parameters
     ----------
-    initial_args: [Dict]
+    attributes: [Dict]
         dictionary contains all the parameters of the function, positional and key word
         parameters, each parameter is a key(i.e 'name' in the below example), and the
         value is a dict that has at least a key called "type", and a value that is an
@@ -251,6 +252,7 @@ def class_attr_initialize(attributes):
         """
 
         def wrapper(*args, **kwargs):
+            """wrapper function."""
             self = args[0]
             # initialize attributes
             for key, val in attributes.items():
