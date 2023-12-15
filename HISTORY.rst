@@ -17,3 +17,9 @@ History
 ------------------
 
 * bump up versions
+
+0.2.0 (2023-12-15)
+------------------
+
+* python version 3.11 or higher is required.
+* update github actions
