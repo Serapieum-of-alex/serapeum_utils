@@ -26,7 +26,8 @@ jobs:
       - name: Install poetry
         run: |
             pip install --user poetry==1.7.1
-            export PATH="${PATH}:/root/.poetry/bin"
+            # export PATH="${PATH}:/root/.poetry/bin"
+            export PATH="$HOME/.poetry/bin:$PATH"
 
       - name: Install dependencies
         run: |
