@@ -26,6 +26,7 @@ jobs:
       - name: Install poetry
         run: |
             pip install --user poetry==1.7.1
+            which poetry
 
       - name: Export poetry path
         if: ${{runner.os == 'Linux'}}
