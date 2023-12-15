@@ -12,7 +12,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest] #, macos-latest
         python-version: ["3.11", "3.12"]
 
     steps:
@@ -26,8 +26,8 @@ jobs:
       - name: Install poetry
         run: |
             pip install --user poetry==1.7.1
-            # export PATH="${PATH}:/root/.poetry/bin"
-            export PATH="$HOME/.poetry/bin:$PATH"
+            export PATH="${PATH}:/root/.poetry/bin"
+            # export PATH="$HOME/.poetry/bin:$PATH"
 
       - name: Install dependencies
         run: |
