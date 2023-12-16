@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "serapeum_utils"
-version = "0.1.2"
+version = "0.2.0"
 description = "utility package"
 authors = ["Mostafa Farrag <moah.farag@gmail.com>"]
 license = "GNU General Public License v3"
@@ -14,9 +14,8 @@ classifiers=[
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Natural Language :: English",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "Topic :: Scientific/Engineering :: Visualization",
         "Intended Audience :: Science/Research",
         "Intended Audience :: Developers",

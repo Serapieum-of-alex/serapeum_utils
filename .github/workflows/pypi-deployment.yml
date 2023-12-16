@@ -1,4 +1,5 @@
-name: Linux
+name: pypi-deployment
+
 on:
     push:
         branches:
@@ -11,37 +12,39 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-latest]
+        os: [ubuntu-latest, windows-latest] #, macos-latest
         python-version: ["3.11", "3.12"]
-    env:
-      OS: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python ${{ matrix.python-version }} ${{ matrix.os }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
+
       - name: Install poetry
         run: |
-            pip install --user poetry==1.5.1
+            pip install --user poetry==1.7.1
+            which poetry
+
+      - name: Export poetry path
+        if: ${{runner.os == 'Linux'}}
+        run: |
             export PATH="${PATH}:/root/.poetry/bin"
+            # export PATH="$HOME/.poetry/bin:$PATH"
 
       - name: Install dependencies
         run: |
             poetry install
-            source `poetry env info --path`/bin/activate
 
-      - name: Install & Lint with flake8
+      - name: Activate poetry environment
+        if: ${{runner.os == 'Linux'}}
         run: |
-            pip install flake8
-            flake8 --max-line-length=120 src/serapeum_utils/*.py tests/*.py
+            source `poetry env info --path`/bin/activate
 
       - name: Generate coverage report
         run: |
-            pip install pytest
-            pip install pytest-cov
             poetry run pytest -vvv --cov=src/serapeum_utils --cov-report=xml
 
       - name: Upload coverage reports to Codecov with GitHub Action
